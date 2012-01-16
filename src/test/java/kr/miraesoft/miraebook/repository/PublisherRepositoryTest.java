@@ -14,56 +14,56 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class PublisherRepositoryTest {
 
 	@Autowired PublisherRepository publisherRepository;
-	
+
 	@Test
-	public void ÃâÆÇ¼Ò¸¦_µî·ÏÇÕ´Ï´Ù() throws Exception {
+	public void ì¶œíŒì†Œë¥¼_ë“±ë¡í•©ë‹ˆë‹¤() throws Exception {
 		//begin
 		Publisher publisher = new Publisher();
 		publisher.setId(1L);
-		publisher.setName("ÇÑºû¹Ìµğ¾î");
-		
+		publisher.setName("í•œë¹›ë¯¸ë””ì–´");
+
 		//when
 		publisherRepository.save(publisher);
-		
+
 		//begin
 		publisher = new Publisher();
 		publisher.setId(2L);
-		publisher.setName("ÀÎ»çÀÌÆ®");
-		
+		publisher.setName("ì¸ì‚¬ì´íŠ¸");
+
 		//when
 		publisherRepository.save(publisher);
-		
+
 		//then.
 		assertEquals(publisherRepository.findAll().size(), 2);
 	}
-	
+
 	@Test
-	public void ÃâÆÇ¼Ò¸¦_¼öÁ¤ÇÕ´Ï´Ù() throws Exception {
+	public void ì¶œíŒì†Œë¥¼_ìˆ˜ì •í•©ë‹ˆë‹¤() throws Exception {
 		//begin
 		Publisher publisher = publisherRepository.findOne(1L);
-		publisher.setName("¿µÁø");
-		
+		publisher.setName("ì˜ì§„");
+
 		//when
 		publisherRepository.save(publisher);
 		publisher = publisherRepository.findOne(1L);
-		
+
 		//then
-		assertEquals(publisher.getName(), "¿µÁø");
-		
+		assertEquals(publisher.getName(), "ì˜ì§„");
+
 	}
-	
-	
+
+
 	@Test
-	public void ÃâÆÇ¼Ò¸¦_»èÁ¦ÇÕ´Ï´Ù() throws Exception {
+	public void ì¶œíŒì†Œë¥¼_ì‚­ì œí•©ë‹ˆë‹¤() throws Exception {
 		//begin
 		Publisher publisher = publisherRepository.findOne(2L);
-		
+
 		//when
 		publisherRepository.delete(2L);
 		publisher = publisherRepository.findOne(2L);
-		
+
 		//then
 		assertNull(publisher);
-			
+
 	}
 }

@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import kr.miraesoft.miraebook.domain.Translator;
 
 import org.junit.After;
@@ -20,78 +18,78 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/applicationContext.xml"})
 public class TranslatorTest {
 
-	@Inject 
+	@Autowired 
 	TranslatorRepository translatorRepository;
 
 
 	@Test
 	public void test() {
 		// begin
-		Translator translator = new  Translator(0, "È²¼ø¿ø");
-		
+		Translator translator = new  Translator(0, "í™©ìˆœì›");
+
 		// then
-		assertEquals("È²¼ø¿ø", translator.getName());
-		
+		assertEquals("í™©ìˆœì›", translator.getName());
+
 	}
 
 	@Before
-	public void ¹ø¿ªÀÚÀúÀå() {
+	public void ë²ˆì—­ìì €ì¥() {
 		// begin
-		Translator translator1 = new  Translator(1, "¾È¼Ò¿µ");
-		Translator translator2 = new  Translator(2, "Àåº¸¾Æ");
+		Translator translator1 = new  Translator(1, "ì•ˆì†Œì˜");
+		Translator translator2 = new  Translator(2, "ì¥ë³´ì•„");
 		// when
 		translatorRepository.save(translator1);
 		translatorRepository.save(translator2);
 		// then
 		assertEquals(2, translatorRepository.count());
-		
+
 	}
-	
+
 
 	@Test
-	public void ¹ø¿ªÀÚÁ¤º¸°¡Á®¿À±â() {
+	public void ë²ˆì—­ìì •ë³´ê°€ì ¸ì˜¤ê¸°() {
 		// begin
 		Translator translator = new  Translator();
 		translator.setId(1);
-		
+
 		// when
 		translator = translatorRepository.findOne(translator.getId());
 		// then
-		assertEquals("¾È¼Ò¿µ", translator.getName());
+		assertEquals("ì•ˆì†Œì˜", translator.getName());
 	}
-	
+
 
 
 	@Test
-	public void ¹ø¿ªÀÚÁ¤º¸¸®½ºÆ®°¡Á®¿À±â() {
+	public void ë²ˆì—­ìì •ë³´ë¦¬ìŠ¤íŠ¸ê°€ì ¸ì˜¤ê¸°() {
 		// begin
-		
+
 		// when
 		List<Translator> list = translatorRepository.findAll();
 		// then
 		assertEquals(2, list.size());
 	}
-	
+
 	@Test
-	public void ¹ø¿ªÀÚÁ¤º¸¼öÁ¤ÇÏ±â(){
+	public void ë²ˆì—­ìì •ë³´ìˆ˜ì •í•˜ê¸°(){
 		// begin
-		
+
 		// when 
-		translatorRepository.save(new Translator(1,"±è¹ü¼ö"));
+		translatorRepository.save(new Translator(1,"ê¹€ë²”ìˆ˜"));
 		Translator translator1 = translatorRepository.findOne(1);
 		Translator translator2 = translatorRepository.findOne(2);
 
 
 		// then
-		assertEquals("±è¹ü¼ö", translator1.getName());
-		assertEquals("Àåº¸¾Æ", translator2.getName());
+		assertEquals("ê¹€ë²”ìˆ˜", translator1.getName());
+		assertEquals("ì¥ë³´ì•„", translator2.getName());
 	}
-	
+
 	@Test
-	public void ¹ø¿ªÀÚÁ¤º¸»èÁ¦ÇÏ±â(){
+	public void ë²ˆì—­ìì •ë³´ì‚­ì œí•˜ê¸°(){
 		//when
 		translatorRepository.deleteAll();
-		
+
 		//then
 		assertEquals(0, translatorRepository.findAll().size());
 	}

@@ -16,11 +16,7 @@ public class TagControllerTest {
 	public void TagController_태크_입력() {
 		TagController tagController = new TagController();
 		tagController.add();
-<<<<<<< HEAD
 		assertNotNull(tagController);
-=======
-		assertNotNull(tag)
->>>>>>> branch 'master' of git@github.com:miraesoft/miraebook.git
 	}
 	
 }
