@@ -16,7 +16,7 @@ public class TagControllerTest {
 	public void TagController_태크_입력() {
 		TagController tagController = new TagController();
 		tagController.add();
-		assertNotNull(tag)
+		assertNotNull(tagController);
 	}
 	
 }
