@@ -8,6 +8,7 @@ import kr.miraesoft.miraebook.domain.Author;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class AuthorRepository {
@@ -15,14 +16,21 @@ public class AuthorRepository {
 	@Autowired
 	private EntityManagerFactory entityManagerFactory;
 
+	private EntityManager getEntityManager(){
+		return entityManagerFactory.createEntityManager();
+	}
+		
 	public void insertAuthor(Author author) {
-		// TODO Auto-generated method stub
-		EntityManager em = entityManagerFactory.createEntityManager();
+		EntityManager em = getEntityManager();
 		EntityTransaction et = em.getTransaction();
 		et.begin();
 		em.persist(author);
 		et.commit();
 		em.close();
+	}
+	
+	public Author findAuthor(Author author) {
+		return (Author) getEntityManager().find(author.getClass(), author.getNo());
 	}
 	
 }

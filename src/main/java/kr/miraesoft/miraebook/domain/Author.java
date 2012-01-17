@@ -7,9 +7,9 @@ import javax.persistence.*;
 @Table(name = "AUTHOR")
 public class Author {
 	
-	@Id @GeneratedValue
+	@Id 
 	@Column(name = "NO")
- 	private int no;
+ 	private Integer no;
  	
 	@Column(name = "NAME")
 	private String name;
@@ -23,13 +23,12 @@ public class Author {
 		this.name = name;
 	}
 
-	public void setNo(int no) {
-		// TODO Auto-generated method stub
-		this.no = no;
+	public Integer getNo() {
+		return no;
 	}
 
-	public int getNo() {
-		return no;
+	public void setNo(Integer no) {
+		this.no = no;
 	}
 
 	

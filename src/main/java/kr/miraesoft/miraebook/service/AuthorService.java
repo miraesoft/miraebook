@@ -6,6 +6,6 @@ public interface AuthorService {
 
 	void addAuthor(Author author);
 
-	Author getAuthor(int i);
+	Author getAuthor(Author author);
 
 }

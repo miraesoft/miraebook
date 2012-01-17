@@ -33,15 +33,17 @@ public class AuthorTest {
 	}
 	
 	@Test
-	public void testAddAuthor() throws Exception {
+	public void testAddAuthor_번역자_저장후_확인() throws Exception {
 		Author author = new Author();
 		author.setNo(1);
 		author.setName("안병휘");
 		authorService.addAuthor(author);
 		
-		Author author2 = authorService.getAuthor(1);
+		Author author2 = authorService.getAuthor(author);
+		System.out.println(author2.getNo()+author2.getName());
 		
-		assertNotNull(author2); 
+		
+		assertNotNull(author2.getName(),author2); 
 		
 	}
 	

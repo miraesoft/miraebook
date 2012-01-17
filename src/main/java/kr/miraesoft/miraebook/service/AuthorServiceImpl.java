@@ -14,14 +14,12 @@ public class AuthorServiceImpl implements AuthorService {
 	private AuthorRepository authorRepository; 
 	
 	public void addAuthor(Author author) {
-		// TODO Auto-generated method stub
-		authorRepository.insertAuthor(author);
+		authorRepository.insertAuthor(author);          
 
 	}
 
-	public Author getAuthor(int i) {
-		// TODO Auto-generated method stub
-		return new Author();
+	public Author getAuthor(Author author) {
+		return authorRepository.findAuthor(author);
 	}
 
 }
