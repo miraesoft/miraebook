@@ -1,10 +1,10 @@
 package kr.miraesoft.miraebook.repository;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 import kr.miraesoft.miraebook.domain.Author;
 import kr.miraesoft.miraebook.service.AuthorService;
 
-import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +18,14 @@ public class AuthorTest {
 	@Autowired
 	private AuthorService authorService;
 	
-	@Before
-	public void initAuthor(){
-		
-	}
-	
 	@Test
 	public void testAuthor() {
-		Author author = new Author();
-		assertNotNull(author);
+//		Author author = new Author();
+//		assertNotNull(author);
+		assertNotNull(authorService);
 	}
 	
+	@Ignore
 	@Test
 	public void testAddAuthor_저장후_확인() throws Exception {
 		Author author = new Author();
@@ -37,10 +34,9 @@ public class AuthorTest {
 		authorService.addAuthor(author);
 		
 		Author author2 = authorService.getAuthor(author);
-		System.out.println(author2.getNo()+author2.getName());
-		
 		
 		assertNotNull(author2.getName(),author2); 
+		assertEquals(author2.getName(), author.getName());
 		
 	}
 	

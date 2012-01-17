@@ -27,6 +27,10 @@
                         http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <context:annotation-config />
+    
+	<context:component-scan base-package="kr.miraesoft.miraebook" use-default-filters="true">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
 	
     <jdbc:embedded-database id="dataSource" type="HSQL" />
 
