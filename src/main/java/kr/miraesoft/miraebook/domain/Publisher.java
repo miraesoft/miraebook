@@ -8,16 +8,16 @@ import javax.persistence.Id;
 public class Publisher {
 	
 	@Column(nullable = false)
-	private Long id;
+	private Integer id;
 	
 	@Column(nullable = false)
 	private String name;
 	
 	@Id
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {

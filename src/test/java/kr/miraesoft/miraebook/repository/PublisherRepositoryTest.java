@@ -1,11 +1,13 @@
 package kr.miraesoft.miraebook.repository;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+
+import javax.inject.Inject;
+
 import kr.miraesoft.miraebook.domain.Publisher;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -13,13 +15,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/applicationContext.xml"})
 public class PublisherRepositoryTest {
 
-	@Autowired PublisherRepository publisherRepository;
+	@Inject PublisherRepository publisherRepository;
 	
 	@Test
 	public void 출판소를_등록합니다() throws Exception {
 		//begin
 		Publisher publisher = new Publisher();
-		publisher.setId(1L);
+		publisher.setId(1);
 		publisher.setName("한빛미디어");
 		
 		//when
@@ -27,7 +29,7 @@ public class PublisherRepositoryTest {
 		
 		//begin
 		publisher = new Publisher();
-		publisher.setId(2L);
+		publisher.setId(2);
 		publisher.setName("인사이트");
 		
 		//when
@@ -40,12 +42,12 @@ public class PublisherRepositoryTest {
 	@Test
 	public void 출판소를_수정합니다() throws Exception {
 		//begin
-		Publisher publisher = publisherRepository.findOne(1L);
+		Publisher publisher = publisherRepository.findOne(1);
 		publisher.setName("영진");
 		
 		//when
 		publisherRepository.save(publisher);
-		publisher = publisherRepository.findOne(1L);
+		publisher = publisherRepository.findOne(1);
 		
 		//then
 		assertEquals(publisher.getName(), "영진");
@@ -53,14 +55,20 @@ public class PublisherRepositoryTest {
 	}
 	
 	
+	/**
+	 * @throws Exception
+	 */
+	/**
+	 * @throws Exception
+	 */
 	@Test
 	public void 출판소를_삭제합니다() throws Exception {
 		//begin
-		Publisher publisher = publisherRepository.findOne(2L);
+		Publisher publisher = publisherRepository.findOne(2);
 		
 		//when
-		publisherRepository.delete(2L);
-		publisher = publisherRepository.findOne(2L);
+		publisherRepository.delete(2);
+		publisher = publisherRepository.findOne(2);
 		
 		//then
 		assertNull(publisher);
