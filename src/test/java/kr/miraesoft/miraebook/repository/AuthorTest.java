@@ -20,8 +20,8 @@ public class AuthorTest {
 	
 	@Test
 	public void testAuthor() {
-//		Author author = new Author();
-//		assertNotNull(author);
+		Author author = new Author();
+		assertNotNull(author);
 		assertNotNull(authorService);
 	}
 	
@@ -36,6 +36,7 @@ public class AuthorTest {
 		Author author2 = authorService.getAuthor(author);
 		
 		assertNotNull(author2.getName(),author2); 
+		
 		assertEquals(author2.getName(), author.getName());
 		
 	}
