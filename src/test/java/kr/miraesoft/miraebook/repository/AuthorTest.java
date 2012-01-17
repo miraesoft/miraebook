@@ -1,9 +1,6 @@
 package kr.miraesoft.miraebook.repository;
 
 import static org.junit.Assert.assertNotNull;
-
-import javax.persistence.EntityManagerFactory;
-
 import kr.miraesoft.miraebook.domain.Author;
 import kr.miraesoft.miraebook.service.AuthorService;
 
@@ -33,10 +30,10 @@ public class AuthorTest {
 	}
 	
 	@Test
-	public void testAddAuthor_¹ø¿ªÀÚ_ÀúÀåÈÄ_È®ÀÎ() throws Exception {
+	public void testAddAuthor_ì €ì¥í›„_í™•ì¸() throws Exception {
 		Author author = new Author();
 		author.setNo(1);
-		author.setName("¾Èº´ÈÖ");
+		author.setName("ì•ˆë³‘íœ˜");
 		authorService.addAuthor(author);
 		
 		Author author2 = authorService.getAuthor(author);
