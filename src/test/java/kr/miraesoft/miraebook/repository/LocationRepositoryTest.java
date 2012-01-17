@@ -18,11 +18,11 @@ public class LocationRepositoryTest {
 	@Autowired LocationRepository locationRepository;
 	
 	@Test
-	public void Ã¥ÀúÀå¼Ò¸¦_µî·ÏÇÕ´Ï´Ù() throws Exception {
+	public void ì±…ì €ì¥ì†Œë¥¼_ë“±ë¡í•©ë‹ˆë‹¤() throws Exception {
 		//begin
 		Location location = new Location();
 		location.setId(1L);
-		location.setName("µğÀÚÀÎÆĞÅÏ");
+		location.setName("ë””ìì¸íŒ¨í„´");
 		location.setLocationType(LocationType.IT);
 		
 		//when
@@ -42,23 +42,23 @@ public class LocationRepositoryTest {
 	}
 	
 	@Test
-	public void Ã¥ÀúÀå¼Ò¸¦_¼öÁ¤ÇÕ´Ï´Ù() throws Exception {
+	public void ì±…ì €ì¥ì†Œë¥¼_ìˆ˜ì •í•©ë‹ˆë‹¤() throws Exception {
 		//begin
 		Location loc = locationRepository.findOne(1L);
-		loc.setName("µµ¸ŞÀÎÁÖµµ°³¹ß");
+		loc.setName("ë„ë©”ì¸ì£¼ë„ê°œë°œ");
 		
 		//when
 		locationRepository.save(loc);
 		loc = locationRepository.findOne(1L);
 		
 		//then
-		assertEquals(loc.getName(), "µµ¸ŞÀÎÁÖµµ°³¹ß");
+		assertEquals(loc.getName(), "ë„ë©”ì¸ì£¼ë„ê°œë°œ");
 		
 	}
 	
 	
 	@Test
-	public void Ã¥ÀúÀå¼Ò¸¦_»èÁ¦ÇÕ´Ï´Ù() throws Exception {
+	public void ì±…ì €ì¥ì†Œë¥¼_ì‚­ì œí•©ë‹ˆë‹¤() throws Exception {
 		//begin
 		Location loc = locationRepository.findOne(2L);
 		
