@@ -24,6 +24,7 @@
 	  <property name="prefix" value="/"/>
 	  <property name="suffix" value=".vm"/>
 	  <property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml" />
+	  <property name="contentType" value="text/html charset=UTF-8" ></property>
 	</bean>
 			
 </beans>
