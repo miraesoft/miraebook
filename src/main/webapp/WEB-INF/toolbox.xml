@@ -18,10 +18,10 @@
 
 <toolbox>
 
-	<data type="string">
+	<!-- data type="string">
 		<key>author</key>
 		<value>Nathan Bubna</value>
-	</data>
+	</data-->
 	<tool>
 		<key>browser</key>
 		<scope>request</scope>

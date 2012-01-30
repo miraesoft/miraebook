@@ -1,5 +1,22 @@
-list
-
-http://www.avajava.com/tutorials/categories/servlets
-http://www.mkyong.com/spring3/spring-3-mvc-hello-world-example/
-http://static.springsource.org/spring/docs/3.0.0.M3/spring-framework-reference/html/ch18s03.html
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>author write</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+    <table border="1">
+     #foreach($entity in $list)
+    <tr>
+    <td><a href="$entity.no">$entity.name</a></td>
+    <td><button onclick="location.href='delete?no=$entity.no'">delete</button></td>
+    <td><button onclick="location.href='update?no=$entity.no'">update</button></td>
+    </tr>
+        #end
+    </table>
+        <button onclick="location.href='write'">write</button>
+    </body>
+</html>

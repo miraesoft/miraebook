@@ -8,7 +8,7 @@
 		</script>
     </head>
     <body>
-        <form action="writeDo" method="get" id="frm">
+        <form action="write" method="post" id="frm">
             author name : <input type="text" name="name" value="" autofocus="autofocus" required="required" />
 			<button>submit</button>
         </form>
