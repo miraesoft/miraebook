@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>author write</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+        <form action="writeDo" method="get" id="frm">
+            author name : <input type="text" name="name" value="" autofocus="autofocus" required="required" />
+			<button>submit</button>
+        </form>
+    </body>
+</html>
