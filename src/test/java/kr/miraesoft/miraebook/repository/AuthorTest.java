@@ -33,7 +33,7 @@ public class AuthorTest {
 		author.setName("안병휘");
 		authorService.addAuthor(author);
 		
-		Author author2 = authorService.getAuthor(author);
+		Author author2 = authorService.getAuthor(1);
 		
 		assertNotNull(author2.getName(),author2); 
 		
