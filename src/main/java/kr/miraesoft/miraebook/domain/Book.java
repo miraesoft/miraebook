@@ -8,17 +8,18 @@ import javax.persistence.Id;
 
 @Entity
 public class Book {
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer bookno;
-	
+
 	@Column
 	private String name;
-	
-//	private Location location;
-//	private Publisher publisher;
-//	private ArrayList<Tag> tag;
-//	private Translator translator;
-	
+
+	// private Location location;
+	// private Publisher publisher;
+	// private ArrayList<Tag> tag;
+	// private Translator translator;
+
 	public Integer getBookno() {
 		return bookno;
 	}
@@ -34,8 +35,5 @@ public class Book {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
-	
+
 }
