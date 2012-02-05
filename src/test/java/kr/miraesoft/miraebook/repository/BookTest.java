@@ -46,10 +46,10 @@ public class BookTest {
 		Book book = new Book();
 		book.setName("토비의 스프링3.0");
 		bookService.addBook(book);
-		assertEquals(bookService.getBook(1).getName(), "토비의 스프링3.0");
+		assertEquals(bookService.getBook(2).getName(), "토비의 스프링3.0");
 		
 		book.setName("토비의 스프링3.0 업데이트");
 		bookService.updateBook(book);
-		assertEquals(bookService.getBook(1).getName(), "토비의 스프링3.0 업데이트");
+		assertEquals(bookService.getBook(2).getName(), "토비의 스프링3.0 업데이트");
 	}
 }
