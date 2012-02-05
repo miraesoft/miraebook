@@ -20,9 +20,6 @@ public class BookTest {
 	@Autowired
 	private BookService bookService;
 	
-
-
-
 	@Test
 	public void testBook() {
 		Book book = new Book();
@@ -51,5 +48,6 @@ public class BookTest {
 		book.setName("토비의 스프링3.0 업데이트");
 		bookService.updateBook(book);
 		assertEquals(bookService.getBook(2).getName(), "토비의 스프링3.0 업데이트");
+		
 	}
 }
