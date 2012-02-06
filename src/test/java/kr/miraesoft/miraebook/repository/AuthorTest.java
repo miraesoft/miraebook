@@ -36,7 +36,7 @@ public class AuthorTest {
 		author.setName("안병휘");
 		authorService.addAuthor(author);
 		
-		Author author2 = authorService.getAuthor(author);
+		Author author2 = authorService.getAuthor(author.getNo());
 		System.out.println(author2.getNo()+author2.getName());
 		
 		
