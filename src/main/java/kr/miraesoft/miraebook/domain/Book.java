@@ -24,7 +24,7 @@ public class Book {
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id")
 	private Location location;
-	
+	    
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id")
 	private Publisher publisher;
