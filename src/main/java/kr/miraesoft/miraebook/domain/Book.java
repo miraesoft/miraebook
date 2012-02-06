@@ -20,7 +20,7 @@ public class Book {
 
 	@Column
 	private String name;
-	
+	/*
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id")
 	private Location location;
@@ -28,15 +28,16 @@ public class Book {
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id")
 	private Publisher publisher;
-	/*
+	
 	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name="id")
 	private Set<Tag> tag;
-	*/
+	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id")
 	private Translator translator;
-
+*/
+	
 	public Integer getBookno() {
 		return bookno;
 	}
@@ -54,6 +55,7 @@ public class Book {
 		this.name = name;
 	}
 
+	/*
 	public Location getLocation() {
 		return location;
 	}
@@ -69,7 +71,7 @@ public class Book {
 	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
 	}
-/*
+
 	public Set<Tag> getTag() {
 		return tag;
 	}
@@ -77,7 +79,7 @@ public class Book {
 	public void addTag(Tag tag) {
 		this.tag.add(tag);
 	}
-*/
+
 	public Translator getTranslator() {
 		return translator;
 	}
@@ -85,6 +87,6 @@ public class Book {
 	public void setTranslator(Translator translator) {
 		this.translator = translator;
 	}
-
+*/
 	
 }
