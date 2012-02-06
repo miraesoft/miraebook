@@ -1,5 +1,8 @@
 package kr.miraesoft.miraebook.repository;
 import static org.junit.Assert.*;
+
+import javax.inject.Inject;
+
 import kr.miraesoft.miraebook.domain.Location;
 import kr.miraesoft.miraebook.domain.LocationType;
 import kr.miraesoft.miraebook.repository.LocationRepository;
@@ -15,7 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/applicationContext.xml"})
 public class LocationRepositoryTest {
 
-	@Autowired LocationRepository locationRepository;
+	@Inject LocationRepository locationRepository;
 	
 	@Test
 	public void 책저장소를_등록합니다() throws Exception {
