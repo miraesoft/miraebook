@@ -36,5 +36,10 @@ public class AuthorServiceImpl implements AuthorService {
 		return authorRepositoryNew.save(author);
 	}
 
+	public Author getAuthor(Author author) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

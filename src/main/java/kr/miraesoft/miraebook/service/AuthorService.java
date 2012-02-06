@@ -16,5 +16,7 @@ public interface AuthorService {
 
 	Author updateAuthor(Author author);
 
+	Author getAuthor(Author author);
+
 
 }
