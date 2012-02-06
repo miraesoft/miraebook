@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>author write</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+        <form action="update" method="post" id="frm">
+        	#springFormHiddenInput("author.no" "")
+        	author name : #springFormInput("author.name" "autofocus='autofocus' required='required' ")
+			<button>submit</button>
+        </form>
+    </body>
+</html>
