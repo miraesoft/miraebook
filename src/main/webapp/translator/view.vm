@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>translator write</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+        name : ${translator.name}  
+    	 <button onclick="location.href='list'">list </button>
+    </body>
+    
+</html>
