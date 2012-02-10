@@ -1,5 +1,6 @@
 package kr.miraesoft.miraebook.domain;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -20,11 +21,12 @@ public class Book {
 
 	@Column
 	private String name;
-	/*
-	@OneToOne(fetch=FetchType.LAZY)
+
+	
+	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name="id")
-	private Location location;
-	    
+	private List<Location> location;
+	    /*
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id")
 	private Publisher publisher;
@@ -55,15 +57,18 @@ public class Book {
 		this.name = name;
 	}
 
-	/*
-	public Location getLocation() {
+	public List<Location> getLocation() {
 		return location;
 	}
 
-	public void setLocation(Location location) {
+	public void setLocation(List<Location> location) {
 		this.location = location;
 	}
 
+	
+
+	
+/*
 	public Publisher getPublisher() {
 		return publisher;
 	}
@@ -88,5 +93,6 @@ public class Book {
 		this.translator = translator;
 	}
 */
+
 	
 }

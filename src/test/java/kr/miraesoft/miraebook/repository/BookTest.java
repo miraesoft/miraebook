@@ -1,7 +1,16 @@
 package kr.miraesoft.miraebook.repository;
 
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import javax.inject.Inject;
+
 import kr.miraesoft.miraebook.domain.Book;
+import kr.miraesoft.miraebook.domain.Location;
+import kr.miraesoft.miraebook.domain.LocationType;
 import kr.miraesoft.miraebook.service.BookService;
 
 import org.junit.Ignore;
@@ -20,6 +29,8 @@ public class BookTest {
 	@Autowired
 	private BookService bookService;
 	
+	@Inject LocationRepository locationRepository;
+	
 	@Test
 	public void testBook() {
 		Book book = new Book();
@@ -29,13 +40,37 @@ public class BookTest {
 	
 	@Test
 	public void testAddBook_책_추가_후_확인() throws Exception {
+		
+		//begin
+		Location location = new Location();
+		location.setId(1L);
+		location.setName("디자인패턴");
+		location.setLocationType(LocationType.IT);
+		
+		//when
+		locationRepository.save(location);
+		
+		//begin
+		Location location2 = new Location();
+		location2.setId(1L);
+		location2.setName("디자인패턴2");
+		location2.setLocationType(LocationType.IT);
+		
+		//when
+		locationRepository.save(location);
+		
+		List<Location> loc = new ArrayList();
+		loc.add(location);
+		loc.add(location2);
+		
 		Book book = new Book();
 		book.setName("하이버네이트");
+		book.setLocation(loc);
 		bookService.addBook(book);
 		
 		Book tempBook = bookService.getBook(1);
-		
-		assertEquals(tempBook.getName(), "하이버네이트");
+		assertEquals(tempBook.getLocation().size(), 2);
+		//assertEquals(tempBook.getName(), "하이버네이트");
 	}
 	
 	@Test
