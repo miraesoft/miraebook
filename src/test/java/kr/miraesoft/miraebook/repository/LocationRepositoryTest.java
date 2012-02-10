@@ -13,9 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/applicationContext.xml"})
+@TransactionConfiguration(defaultRollback =true)
 public class LocationRepositoryTest {
 
 	@Inject LocationRepository locationRepository;
@@ -24,35 +26,35 @@ public class LocationRepositoryTest {
 	public void 책저장소를_등록합니다() throws Exception {
 		//begin
 		Location location = new Location();
-		location.setId(1L);
+//		location.setId(1);
 		location.setName("디자인패턴");
-		location.setLocationType(LocationType.IT);
+//		location.setLocationType(LocationType.IT);
 		
 		//when
-		locationRepository.save(location);
+		Integer id = locationRepository.saveLocation(location);
 		
 		//begin
-		location = new Location();
-		location.setId(2L);
-		location.setName("1Q84");
-		location.setLocationType(LocationType.FICTION);
-		
-		//when
-		locationRepository.save(location);
+//		location = new Location();
+////		location.setId(2);
+//		location.setName("1Q84");
+////		location.setLocationType(LocationType.FICTION);
+//		
+//		//when
+//		locationRepository.saveLocation(location);
 		
 		//then.
-		assertEquals(locationRepository.findAll().size(), 2);
+		assertEquals(locationRepository.findOne(id).getName(), "디자인패턴");
 	}
 	
 	@Test
 	public void 책저장소를_수정합니다() throws Exception {
 		//begin
-		Location loc = locationRepository.findOne(1L);
+		Location loc = locationRepository.findOne(1);
 		loc.setName("도메인주도개발");
 		
 		//when
-		locationRepository.save(loc);
-		loc = locationRepository.findOne(1L);
+		locationRepository.reflush(loc);
+		loc = locationRepository.findOne(1);
 		
 		//then
 		assertEquals(loc.getName(), "도메인주도개발");
@@ -63,12 +65,13 @@ public class LocationRepositoryTest {
 	@Test
 	public void 책저장소를_삭제합니다() throws Exception {
 		//begin
-		Location loc = locationRepository.findOne(2L);
+		Location loc = locationRepository.findOne(1);
 		
 		//when
-		
+		locationRepository.delete(loc);
+		loc = locationRepository.findOne(loc.getId());
 		//then
-		assertEquals(loc.getName(), "1Q84");
+		assertNull(loc);
 			
 	}
 }
