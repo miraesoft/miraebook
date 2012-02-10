@@ -43,21 +43,19 @@ public class BookTest {
 		
 		//begin
 		Location location = new Location();
-		location.setId(1L);
 		location.setName("디자인패턴");
 		location.setLocationType(LocationType.IT);
 		
 		//when
-		locationRepository.save(location);
+		locationRepository.saveLocation(location);
 		
 		//begin
 		Location location2 = new Location();
-		location2.setId(1L);
 		location2.setName("디자인패턴2");
 		location2.setLocationType(LocationType.IT);
 		
 		//when
-		locationRepository.save(location);
+		locationRepository.saveLocation(location);
 		
 		List<Location> loc = new ArrayList();
 		loc.add(location);
