@@ -1,10 +1,22 @@
 package kr.miraesoft.miraebook.repository;
 
+import java.util.List;
 
 import kr.miraesoft.miraebook.domain.Translator;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TranslatorRepository extends JpaRepository<Translator, Integer> {
+
+public interface TranslatorRepository {
+
+	List<Translator> getTranslatorList();
+
+	Integer save(Translator translator);
+
+	Translator get(Integer no);
+
+	void delete(Translator translator);
+
+	void update(Translator translator);
+	
 
 }

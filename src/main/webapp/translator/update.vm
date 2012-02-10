@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>translator write</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+        <form action="update" method="post" id="frm">
+        	#springFormHiddenInput("translator.no" "")
+        	translator name : #springFormInput("translator.name" "autofocus='autofocus' required='required' ")
+			<button>submit</button>
+        </form>
+    </body>
+</html>
