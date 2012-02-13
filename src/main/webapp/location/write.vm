@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>location write</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+        <form action="write" method="post" id="frm">
+            위치 명  : <input type="text" name="name" value="" autofocus="autofocus" required="required" />
+			<input type="submit" value="submit">
+        </form>
+    </body>
+</html>
