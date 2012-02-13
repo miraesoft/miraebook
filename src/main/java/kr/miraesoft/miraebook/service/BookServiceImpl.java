@@ -17,21 +17,6 @@ public class BookServiceImpl implements BookService {
 	@Autowired
 	private BookRepository bookRepository;
 	
-	@Autowired
-	private AuthorRepository authorRepository;
-	
-	@Autowired
-	private LocationRepository locationRepository;
-	
-	@Autowired
-	private PublisherRepository publisherRepository;
-	
-	@Autowired
-	private TranslatorRepository translatorRepository;
-	
-	@Autowired
-	private TagJpaRepository tagRepository;
-	
 	public void addBook(Book book) {
 		bookRepository.saveBook(book);
 	}
