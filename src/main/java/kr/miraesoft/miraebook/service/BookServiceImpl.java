@@ -23,7 +23,7 @@ public class BookServiceImpl implements BookService {
 
 	public Book getBook(int bookno) {
 		Book book =  bookRepository.findBook(bookno);
-		book.getLocation().size();
+//		book.getLocation().size();
 		return book;
 	}
 
