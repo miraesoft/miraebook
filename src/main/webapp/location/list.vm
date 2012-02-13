@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>location write</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body> 
+    <table border="1">
+     #foreach($entity in $list)
+    <tr>
+    <td><a href="view?id=$entity.id">$entity.name</a></td>
+    <td><button onclick="location.href='delete?id=$entity.id'">delete</button></td>
+    <td><button onclick="location.href='update?id=$entity.id'">update</button></td>
+    </tr>
+        #end
+    </table>
+    쓰기
+        <button onclick="location.href='write'">write</button>
+    </body>
+</html>

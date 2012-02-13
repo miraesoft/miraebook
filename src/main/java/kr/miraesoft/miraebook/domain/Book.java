@@ -23,9 +23,9 @@ public class Book {
 	private String name;
 
 	
-	@OneToMany(fetch=FetchType.LAZY)
-	@JoinColumn(name="id")
-	private List<Location> location;
+//	@OneToMany(fetch=FetchType.LAZY)
+//	@JoinColumn(name="id")
+//	private List<Location> location;
 	    /*
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id")
@@ -57,13 +57,13 @@ public class Book {
 		this.name = name;
 	}
 
-	public List<Location> getLocation() {
-		return location;
-	}
-
-	public void setLocation(List<Location> location) {
-		this.location = location;
-	}
+//	public List<Location> getLocation() {
+//		return location;
+//	}
+//
+//	public void setLocation(List<Location> location) {
+//		this.location = location;
+//	}
 
 	
 

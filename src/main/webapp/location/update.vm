@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>location update</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+        <form action="update" method="post" id="frm">
+        	#springFormHiddenInput("location.id" "")
+        	위치 명 : #springFormInput("location.name" "autofocus='autofocus' required='required' ")
+			<input type="submit" value="submit">
+        </form>
+    </body>
+</html>

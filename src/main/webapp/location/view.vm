@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>location read</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+        위치 명 : ${location.name}  
+    	 <button onclick="location.href='list'">list </button>
+    </body>
+    
+</html>

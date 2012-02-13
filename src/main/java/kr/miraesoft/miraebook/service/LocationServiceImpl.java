@@ -2,6 +2,8 @@ package kr.miraesoft.miraebook.service;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -14,7 +16,8 @@ import kr.miraesoft.miraebook.repository.LocationRepository;
 //@Transactional
 public class LocationServiceImpl implements LocationService {
 	
-	@Qualifier("locationRepository")
+//	@Qualifier("locationRepository")
+	@Inject
 	LocationRepository locationRepository;
 	
 	public Integer addLocation(Location location) {
