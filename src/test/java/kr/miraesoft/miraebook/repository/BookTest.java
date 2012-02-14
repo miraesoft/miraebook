@@ -87,15 +87,14 @@ public class BookTest {
 	
 	@Test
 	public void test_북만들고_로케이션_지정() throws Exception {
-		Book book = new Book();
-		book.setName("하이버네이트");
+		Book book = bookService.getBook(1);
 		Location location = new Location();
 		location.setName("안병휘가 가져감");
 		location.setBook(book);
-		bookService.addBook(book);
 		locationRepository.saveLocation(location);
 		
 		assertThat(bookService.getBook(1).getName(),is("하이버네이트"));
-//		assertThat(bookService.getBook(1).getLocation().size(), is(1));
+		assertThat(bookService.getBook(1).getLocation().size(), is(1));
+//		assertThat(locationRepository.findOne(1).getBook().getName(), is("하이버네이트"));
 	}
 }
