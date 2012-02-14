@@ -23,9 +23,10 @@ public class Book {
 	private String name;
 
 	
-	@OneToMany(fetch=FetchType.EAGER,mappedBy="book")
-	private List<Location> location;
-	    /*
+	@OneToOne(fetch=FetchType.EAGER)
+	private Location location;
+
+/*
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id")
 	private Publisher publisher;
@@ -56,41 +57,13 @@ public class Book {
 		this.name = name;
 	}
 
-	public List<Location> getLocation() {
+	public Location getLocation() {
 		return location;
 	}
 
-	public void setLocation(List<Location> location) {
+	public void setLocation(Location location) {
 		this.location = location;
 	}
-
 	
-	
-/*
-	public Publisher getPublisher() { 
-		return publisher;
-	}
-
-	public void setPublisher(Publisher publisher) {
-		this.publisher = publisher;
-	}
-
-	public Set<Tag> getTag() {
-		return tag;
-	}
-
-	public void addTag(Tag tag) {
-		this.tag.add(tag);
-	}
-
-	public Translator getTranslator() {
-		return translator;
-	}
-
-	public void setTranslator(Translator translator) {
-		this.translator = translator;
-	}
-*/
-
 	
 }

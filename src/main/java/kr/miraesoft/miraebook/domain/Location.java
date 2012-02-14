@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,8 +23,7 @@ public class Location {
 	@Column(nullable = false)
 	private String name;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="bookno")
+	@OneToOne(fetch=FetchType.EAGER)
 	private Book book;
 
 	public Book getBook() {

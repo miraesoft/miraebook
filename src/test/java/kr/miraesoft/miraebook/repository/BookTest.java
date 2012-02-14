@@ -94,7 +94,7 @@ public class BookTest {
 		locationRepository.saveLocation(location);
 		
 		assertThat(bookService.getBook(1).getName(),is("하이버네이트"));
-		assertThat(bookService.getBook(1).getLocation().size(), is(1));
+		assertThat(bookService.getBook(1).getLocation().getName(), is("안병휘가 가져감"));
 //		assertThat(locationRepository.findOne(1).getBook().getName(), is("하이버네이트"));
 	}
 }
