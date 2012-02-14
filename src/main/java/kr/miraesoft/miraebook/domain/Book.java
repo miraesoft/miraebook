@@ -24,6 +24,7 @@ public class Book {
 
 	
 	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="id")
 	private Location location;
 
 /*

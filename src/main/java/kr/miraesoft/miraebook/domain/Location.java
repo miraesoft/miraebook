@@ -23,15 +23,6 @@ public class Location {
 	@Column(nullable = false)
 	private String name;
 	
-	@OneToOne(fetch=FetchType.EAGER)
-	private Book book;
-
-	public Book getBook() {
-		return book;
-	}
-	public void setBook(Book book) {
-		this.book = book;
-	}
 	public Integer getId() {
 		return id;
 	}
