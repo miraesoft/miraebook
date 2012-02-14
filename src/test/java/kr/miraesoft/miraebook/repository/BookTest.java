@@ -13,6 +13,7 @@ import kr.miraesoft.miraebook.domain.Location;
 import kr.miraesoft.miraebook.domain.LocationType;
 import kr.miraesoft.miraebook.service.BookService;
 
+import static org.hamcrest.core.Is.is;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -82,5 +83,19 @@ public class BookTest {
 		bookService.updateBook(book);
 		assertEquals(bookService.getBook(2).getName(), "토비의 스프링3.0 업데이트");
 		
+	}
+	
+	@Test
+	public void test_북만들고_로케이션_지정() throws Exception {
+		Book book = new Book();
+		book.setName("하이버네이트");
+		Location location = new Location();
+		location.setName("안병휘가 가져감");
+		location.setBook(book);
+		bookService.addBook(book);
+		locationRepository.saveLocation(location);
+		
+		assertThat(bookService.getBook(1).getName(),is("하이버네이트"));
+//		assertThat(bookService.getBook(1).getLocation().size(), is(1));
 	}
 }

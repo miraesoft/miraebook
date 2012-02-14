@@ -49,7 +49,14 @@
 	  <property name="dataSource">
 	    <ref bean="dataSource"/>
 	  </property>
-	  
+       <property name="hibernateProperties">
+           <value>
+               hibernate.dialect=org.hibernate.dialect.HSQLDialect
+               hibernate.show_sql=true
+               hibernate.format_sql=true
+               hibernate.connection.autocommit=false
+           </value>
+       </property>	  
 	</bean>
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
