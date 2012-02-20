@@ -8,15 +8,15 @@
 		</script>
     </head>
     <body>
-        <form action="write" method="post" id="frm">
+        <form action="write.do" method="post" id="frm">
         <table>
    	     		<tr>
    		     			<td>name :</td>
-   	   	  			<td><input type="text" name="name" value="" autofocus="autofocus" required="required" /></td>
+   	   	  			<td><input type="text" name="name" value="$!book.name" autofocus="autofocus" required="required" /></td>
    	   	  		</tr>
    	   	  		<tr>
    	   	  			<td>cost :</td>
-   	   			  	<td><input type="text" name="cost" value="" autofocus="autofocus" required="required" /></td>
+   	   			  	<td><input type="text" name="cost" value="$!book.cost" autofocus="autofocus" required="required" /></td>
    	   		  </tr>
 				<tr>
 					<td>location :</td>
@@ -30,7 +30,7 @@
 				</tr>
 				<tr>
 					<td>translator :</td>
-					<td> <select name="publisher"><option value="">백기선씨</option></select>  </td>
+					<td> <select name="translator"><option value="">백기선씨</option></select>  </td>
 				</tr>
           </table>                    
 			<button>submit</button>

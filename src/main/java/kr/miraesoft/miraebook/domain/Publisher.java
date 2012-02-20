@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Publisher {
 	
 	@Id 
-	@Column(name = "ID")
+	@Column(name="ID")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	

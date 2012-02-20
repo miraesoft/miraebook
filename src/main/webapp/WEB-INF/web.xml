@@ -30,7 +30,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>mirae</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>*.do</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

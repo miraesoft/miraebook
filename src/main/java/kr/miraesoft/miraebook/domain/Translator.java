@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Translator {
 
 	@Id 
-	@Column(name = "NO")
+	@Column(name="NO")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer no;
 

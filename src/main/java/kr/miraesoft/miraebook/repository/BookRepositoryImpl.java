@@ -19,8 +19,8 @@ public class BookRepositoryImpl implements BookRepository {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	public void saveBook(Book book) {
-		getSession().save(book);
+	public Book saveBook(Book book) {
+		return (Book) getSession().save(book);
 	}
 
 	public Book findBook(int bookno) {

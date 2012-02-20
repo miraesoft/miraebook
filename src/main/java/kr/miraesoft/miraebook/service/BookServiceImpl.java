@@ -17,8 +17,8 @@ public class BookServiceImpl implements BookService {
 	@Autowired
 	private BookRepository bookRepository;
 	
-	public void addBook(Book book) {
-		bookRepository.saveBook(book);
+	public Book addBook(Book book) {
+		return bookRepository.saveBook(book);
 	}
 
 	public Book getBook(int bookno) {
