@@ -9,8 +9,30 @@
     </head>
     <body>
         <form action="write" method="post" id="frm">
-            name : <input type="text" name="name" value="" autofocus="autofocus" required="required" />
-            location : <select name="location"><option value="">1번째 책장 위에서 5번</option></select>           
+        <table>
+   	     		<tr>
+   		     			<td>name :</td>
+   	   	  			<td><input type="text" name="name" value="" autofocus="autofocus" required="required" /></td>
+   	   	  		</tr>
+   	   	  		<tr>
+   	   	  			<td>cost :</td>
+   	   			  	<td><input type="text" name="cost" value="" autofocus="autofocus" required="required" /></td>
+   	   		  </tr>
+				<tr>
+					<td>location :</td>
+					<td>
+						 <select name="location"><option value="">1번째 책장 위에서 5번</option></select>
+					</td>
+				</tr>         
+				<tr>
+					<td>publisher :</td>
+					<td><select name="publisher"><option value="">토비</option></select> </td>
+				</tr>
+				<tr>
+					<td>translator :</td>
+					<td> <select name="publisher"><option value="">백기선씨</option></select>  </td>
+				</tr>
+          </table>                    
 			<button>submit</button>
         </form>
     </body>
