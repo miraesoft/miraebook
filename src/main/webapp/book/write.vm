@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>author write</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+        <form action="write" method="post" id="frm">
+            name : <input type="text" name="name" value="" autofocus="autofocus" required="required" />
+            location : <select name="location"><option value="">1번째 책장 위에서 5번</option></select>           
+			<button>submit</button>
+        </form>
+    </body>
+</html>
