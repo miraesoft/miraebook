@@ -4,13 +4,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import kr.miraesoft.miraebook.domain.Location;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import kr.miraesoft.miraebook.domain.Location;
 
 @Repository
 @Transactional
@@ -41,6 +42,12 @@ public class LocationRepositoryImpl implements LocationRepository {
 
 	public void delete(Location location) {
 		getSession().delete(location);
+	}
+
+	public List findAllOrdering(String order) {
+		Criteria criteria = getSession().createCriteria(Location.class);
+		criteria.addOrder(Order.asc(order));
+		return criteria.list();
 	}
 
 }

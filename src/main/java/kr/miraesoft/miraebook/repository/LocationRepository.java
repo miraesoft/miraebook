@@ -23,5 +23,7 @@ public interface LocationRepository {
 	void reflush(Location location);
 
 	void delete(Location loc);
+
+	List findAllOrdering(String order);
 	
 }

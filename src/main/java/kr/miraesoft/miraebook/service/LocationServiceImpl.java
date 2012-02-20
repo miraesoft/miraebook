@@ -41,4 +41,11 @@ public class LocationServiceImpl implements LocationService {
 		locationRepository.delete(location);
 	}
 
+	public List getLocationList(String order) {
+		if(order == null || "".equals(order)){
+			return getLocationList();
+		}
+		return locationRepository.findAllOrdering(order);
+	}
+
 }

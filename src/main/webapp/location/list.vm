@@ -17,7 +17,7 @@
     </tr>
         #end
     </table>
-    쓰기
-        <button onclick="location.href='write'">write</button>
+        <button onclick="location.href='write'">쓰기</button>
+        <button onclick="location.href='list?order=name'">정렬</button>
     </body>
 </html>

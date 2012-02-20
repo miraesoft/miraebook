@@ -22,7 +22,11 @@ public class Location {
 	
 	@Column(nullable = false)
 	private String name;
-	
+	public Location() {
+	}
+	public Location(String name) {
+		this.name = name;
+	}
 	public Integer getId() {
 		return id;
 	}

@@ -5,11 +5,14 @@ import javax.inject.Inject;
 import kr.miraesoft.miraebook.domain.Location;
 import kr.miraesoft.miraebook.service.LocationService;
 
+import org.hibernate.annotations.Parameter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value="/location")
@@ -25,9 +28,8 @@ public class LocationController {
 
 
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public String list(Model model){
-
-		model.addAttribute("list", locationService.getLocationList());
+	public String list(@RequestParam(required=false)String order, Model model){
+		model.addAttribute("list", locationService.getLocationList(order));
 		return "location/list";
 	}
 
