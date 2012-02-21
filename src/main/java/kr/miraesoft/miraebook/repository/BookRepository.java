@@ -4,7 +4,7 @@ import kr.miraesoft.miraebook.domain.Book;
 
 public interface BookRepository{
 
-	Book saveBook(Book book);
+	Integer saveBook(Book book);
 
 	Book findBook(int bookno);
 

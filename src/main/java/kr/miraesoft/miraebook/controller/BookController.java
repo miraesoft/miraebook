@@ -35,8 +35,8 @@ public class BookController {
 	
 	@RequestMapping(value="write",method=RequestMethod.POST)
 	String write(Model model, Book book){
-		book = bookService.addBook(book);
-		model.addAttribute("book", book);
+		int bookno = bookService.addBook(book);
+		model.addAttribute("book", bookService.getBook(bookno));
 		return "book/write";
 	}
 }
