@@ -9,6 +9,7 @@
 	
 	
 	<mvc:annotation-driven />
+	<mvc:default-servlet-handler/>
 	
 	<context:component-scan base-package="kr.miraesoft.miraebook" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
