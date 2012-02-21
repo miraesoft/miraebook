@@ -8,7 +8,7 @@
 		</script>
     </head>
     <body>
-        <form action="write.do" method="post" id="frm">
+        <form action="write" method="post" id="frm">
         <table>
    	     		<tr>
    		     			<td>name :</td>
