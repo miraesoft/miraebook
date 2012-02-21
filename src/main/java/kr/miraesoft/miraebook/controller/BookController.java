@@ -1,11 +1,15 @@
 package kr.miraesoft.miraebook.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import kr.miraesoft.miraebook.domain.Book;
+import kr.miraesoft.miraebook.domain.Location;
+import kr.miraesoft.miraebook.domain.Publisher;
 import kr.miraesoft.miraebook.service.BookService;
+import kr.miraesoft.miraebook.service.LocationService;
+import kr.miraesoft.miraebook.service.PublisherService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,11 +20,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/book")
 public class BookController {
 	
-	@Inject
-	private BookService bookService;
+	@Inject private BookService bookService;
+	@Inject	private LocationService locationService;
+	@Inject private PublisherService publisherService;
 	
 	@RequestMapping(value="write",method=RequestMethod.GET)
-	String write(){
+	String write(Model model){
+		List<Location> locationList = locationService.getLocationList("name"); 
+		List<Publisher> publisherList = publisherService.list();
+		model.addAttribute("locationList", locationList);
+		model.addAttribute("publisherList", publisherList);
 		return "book/write";
 	}
 	

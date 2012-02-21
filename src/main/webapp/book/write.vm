@@ -21,17 +21,27 @@
 				<tr>
 					<td>location :</td>
 					<td>
-						 <select name="location"><option value="">1번째 책장 위에서 5번</option></select>
+						 <select name="location_id">
+						 #foreach($entity in $locationList)
+						 <option value="$!entity.id">$!entity.name</option>
+						 #end
+						 </select>
 					</td>
 				</tr>         
 				<tr>
 					<td>publisher :</td>
-					<td><select name="publisher"><option value="">토비</option></select> </td>
+					<td><select name="publisher_id">
+					#foreach($entity in $publisherList)
+					<option value="$!entity.id">$!entity.name</option>
+					#end
+					</select> </td>
 				</tr>
+				#*
 				<tr>
 					<td>translator :</td>
-					<td> <select name="translator"><option value="">백기선씨</option></select>  </td>
+					<td> <select name="translator"><option value="백기선">백기선씨</option></select>  </td>
 				</tr>
+				*#
           </table>                    
 			<button>submit</button>
         </form>

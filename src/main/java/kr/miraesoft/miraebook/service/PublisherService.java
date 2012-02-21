@@ -15,4 +15,5 @@ public interface PublisherService {
 	Publisher update(Publisher publisher);
 
 	void delete(Integer id);
+
 }
