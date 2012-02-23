@@ -15,12 +15,6 @@ public class BookServiceImpl implements BookService {
 	private BookRepository bookRepository;
 	
 	public Integer addBook(Book book) {
-		Publisher temp_publisher = new Publisher();
-		temp_publisher.setId(book.getPublisher_id());
-		book.setPublisher(temp_publisher);
-		Location temp_location = new Location();
-		temp_location.setId(book.getLocation_id());
-		book.setLocation(temp_location);
 		return bookRepository.saveBook(book);
 	}
 

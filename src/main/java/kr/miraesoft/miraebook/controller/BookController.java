@@ -12,6 +12,7 @@ import kr.miraesoft.miraebook.service.LocationService;
 import kr.miraesoft.miraebook.service.PublisherService;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,6 +38,6 @@ public class BookController {
 	String write(Model model, Book book){
 		int bookno = bookService.addBook(book);
 		model.addAttribute("book", bookService.getBook(bookno));
-		return "book/write";
+		return "book/view";
 	}
 }

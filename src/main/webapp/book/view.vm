@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>book read</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+        책이름  : ${book.name}  
+        <br/>
+        가격 : ${book.cost}
+        <br/>
+        위치 : ${book.location.name}
+        <br/>
+        저자 : ${book.publisher.name}
+    	 <button onclick="location.href='list'">list </button>
+    </body>
+    
+</html>

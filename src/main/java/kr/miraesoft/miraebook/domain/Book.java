@@ -54,6 +54,8 @@ public class Book {
 	}
 
 	public void setLocation_id(Integer location_id) {
+		this.location = new Location();
+		this.location.setId(location_id);
 		this.location_id = location_id;
 	}
 
@@ -62,6 +64,8 @@ public class Book {
 	}
 
 	public void setPublisher_id(Integer publisher_id) {
+		this.publisher = new Publisher();
+		this.publisher.setId(publisher_id);
 		this.publisher_id = publisher_id;
 	}
 
