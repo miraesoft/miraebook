@@ -1,12 +1,12 @@
 package kr.miraesoft.miraebook.repository;
 
+import kr.miraesoft.miraebook.domain.Book;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import kr.miraesoft.miraebook.domain.Book;
 
 @Repository
 @Transactional
@@ -27,9 +27,17 @@ public class BookRepositoryImpl implements BookRepository {
 		return (Book) getSession().get(Book.class,bookno);
 	}
 
-	public void reflushBook(Book book) {
-		getSession().update(book);
+	public Book reflushBook(Book book) {
+		 getSession().update(book);
+		 return findBook(book.getBookno());
 	}
+
+	public void deleteBook(Integer id) {
+		Book book = new Book();
+		book.setBookno(id);
+		getSession().delete(book);
+	}
+	
 
 
 }

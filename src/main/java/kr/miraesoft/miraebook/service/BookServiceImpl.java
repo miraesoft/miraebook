@@ -1,8 +1,6 @@
 package kr.miraesoft.miraebook.service;
 
 import kr.miraesoft.miraebook.domain.Book;
-import kr.miraesoft.miraebook.domain.Location;
-import kr.miraesoft.miraebook.domain.Publisher;
 import kr.miraesoft.miraebook.repository.BookRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +22,12 @@ public class BookServiceImpl implements BookService {
 		return book;
 	}
 
-	public void updateBook(Book book) {
-		bookRepository.reflushBook(book);
+	public Book updateBook(Book book) {
+		return bookRepository.reflushBook(book);
+	}
+
+	public void dropBook(Integer id) {
+		bookRepository.deleteBook(id);
 	}
 
 }

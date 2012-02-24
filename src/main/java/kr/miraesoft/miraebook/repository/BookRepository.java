@@ -8,6 +8,8 @@ public interface BookRepository{
 
 	Book findBook(int bookno);
 
-	void reflushBook(Book book);
+	Book reflushBook(Book book);
+
+	void deleteBook(Integer id);
 
 }
