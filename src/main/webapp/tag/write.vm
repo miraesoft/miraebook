@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>태그 추가</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+        <h2>태그 추가</h2>
+        <form action="write" method="post" id="frm">
+            태그 명  : <input type="text" name="name" value="" autofocus="autofocus" required="required" />
+			<div>
+	    		 <button onclick="location.href='list'">목록으로 가기 </button>
+				<input type="submit" value="저장">
+         </div>
+        </form>
+    </body>
+</html>

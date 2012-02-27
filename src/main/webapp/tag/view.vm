@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>태그정보확인</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+        <h2>태그정보확인</h2>
+    
+         태그 명 : ${tag.name}  
+         <div>
+    	 <button onclick="location.href='list'">목록으로 가기 </button>
+         </div>
+    </body>
+    
+</html>
