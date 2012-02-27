@@ -40,6 +40,7 @@ public class BookTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testAddBook_책_추가_후_확인() throws Exception {
 		
 		//begin
@@ -73,6 +74,7 @@ public class BookTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testUpdateBook_책_추가_후_수정_후_확인() throws Exception {
 		Book book = new Book();
 		book.setName("토비의 스프링3.0");
@@ -86,6 +88,7 @@ public class BookTest {
 	}
 	
 	@Test
+	@Ignore
 	public void test_북만들고_로케이션_지정() throws Exception {
 		
 		Book book = bookService.getBook(1);

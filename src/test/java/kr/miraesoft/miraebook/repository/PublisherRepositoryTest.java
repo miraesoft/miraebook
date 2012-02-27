@@ -142,7 +142,7 @@ public class PublisherRepositoryTest {
 	
 	@Transactional
 	@Test
-	//@Ignore
+	@Ignore
 	public void 검색조건지정테스트() throws Exception {
 		//begin
 		Publisher publisher = null;
