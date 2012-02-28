@@ -113,7 +113,7 @@ public class BookTest {
 		
 		Book book = bookService.getBook(1);
 		
-		assertThat(bookService.getBook(1).getLocation().getName(), is("토비"));
+		assertThat(bookService.getBook(1).getName(), is("스프링책"));
 				
 		
 //		assertThat(locationRepository.findOne(1).getBook().getName(), is("하이버네이트"));

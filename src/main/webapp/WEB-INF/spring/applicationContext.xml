@@ -32,18 +32,31 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:jdbc.properties</value>
+		</property>
+	</bean>
+		
     <jdbc:embedded-database id="dataSource" type="HSQL" />
 
     <jdbc:initialize-database>
-    <jdbc:script location="classpath:sqlscripts/initquery.sql"/>
+   	<jdbc:script location="classpath:sqlscripts/initquery.sql"/>
     </jdbc:initialize-database>
-
+	
+	<bean id="dataSource2" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource2" />
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="generateDdl" value="true" />
-                <property name="database" value="HSQL" />
+                <property name="database" value="${hibernate.database}" />
             </bean>
         </property>
     </bean>
@@ -55,7 +68,7 @@
 	  </property>
        <property name="hibernateProperties">
            <value>
-               hibernate.dialect=org.hibernate.dialect.HSQLDialect
+               hibernate.dialect=${hibernate.dialect}
                hibernate.show_sql=true
                hibernate.format_sql=true
                hibernate.connection.autocommit=false

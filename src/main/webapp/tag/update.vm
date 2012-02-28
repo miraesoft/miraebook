@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>태그 수정</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+    <h2>태그수정</h2>
+        <form action="update" method="post" id="frm">
+        	#springFormHiddenInput("tag.id" "")
+        	태그 명 : #springFormInput("tag.name" "autofocus='autofocus' required='required' ")
+			<div>
+		    	 <button onclick="location.href='list'">목록으로 가기 </button>
+				<button>저장</button>
+	         </div>
+        </form>
+    </body>
+</html>

@@ -80,6 +80,7 @@ public class LocationRepositoryTest {
 	}
 
 	@Test
+	@Ignore
 	public void 책저장소_리스트_정렬() {
 
 		Location location = new Location("안소영책상");

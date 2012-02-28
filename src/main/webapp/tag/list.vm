@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>태그목록</title>
+		<script type="text/javascript">
+			
+		</script>
+    </head>
+    <body>
+    <h2>태그목록</h2>
+    <div>
+	    <table border="1">
+		     #foreach($entity in $list)
+			    <tr>
+				    <td><a href="$entity.id">$entity.name</a></td>
+				    <td><button onclick="location.href='delete?id=$entity.id'">delete</button></td>
+				    <td><button onclick="location.href='update?id=$entity.id'">update</button></td>
+			    </tr>
+		    #end
+	    </table>
+    </div>
+    <div>
+        <button onclick="location.href='write'"> 쓰기</button>
+    </div>
+    </body>
+</html>
