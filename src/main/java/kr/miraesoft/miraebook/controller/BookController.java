@@ -76,4 +76,11 @@ public class BookController {
 		return new ModelAndView(new RedirectView("view/"+book.getBookno()));
 	}
 	
+	@RequestMapping(value="view/{bookno}",method=RequestMethod.GET)
+	String view(@PathVariable("bookno") Integer bookno,Model model){
+		Book book  = bookService.getBook(bookno);
+		model.addAttribute("book", book);
+		return "book/view";
+	}
+	
 }
