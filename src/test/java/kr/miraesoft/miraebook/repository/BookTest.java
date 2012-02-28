@@ -107,4 +107,15 @@ public class BookTest {
 		
 //		assertThat(locationRepository.findOne(1).getBook().getName(), is("하이버네이트"));
 	}
+	
+	@Test
+	public void 책정보가져오기() throws Exception {
+		
+		Book book = bookService.getBook(1);
+		
+		assertThat(bookService.getBook(1).getName(), is("스프링책"));
+				
+		
+//		assertThat(locationRepository.findOne(1).getBook().getName(), is("하이버네이트"));
+	}
 }
