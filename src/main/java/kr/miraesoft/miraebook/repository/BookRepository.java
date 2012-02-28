@@ -12,4 +12,5 @@ public interface BookRepository{
 
 	void deleteBook(Integer id);
 
+	//List<Book> list(BookSearchSpec bookSearchSpec);
 }
