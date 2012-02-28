@@ -81,7 +81,7 @@ public class BookController {
 	@RequestMapping(value="list",method=RequestMethod.GET)
 	String list(Model model , BookSearchSpec bookSearchSpec){
 		
-		Book book = new Book();
+/*		Book book = new Book();
 		book.setName("하이버네이트");
 		book.setLocation(locationService.getLocation(1));
 		bookService.addBook(book);
@@ -94,7 +94,7 @@ public class BookController {
 		book = new Book();
 		book.setName("디비");
 		book.setLocation(locationService.getLocation(1));
-		bookService.addBook(book);
+		bookService.addBook(book);*/
 		
 		
 		model.addAttribute("paging",bookService.listBook(bookSearchSpec));
