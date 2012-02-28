@@ -1,5 +1,7 @@
 package kr.miraesoft.miraebook.repository;
 
+import java.util.List;
+
 import kr.miraesoft.miraebook.domain.Book;
 
 public interface BookRepository{
@@ -12,4 +14,7 @@ public interface BookRepository{
 
 	void deleteBook(Integer id);
 
+	List<Book> list(BookSearchSpec bookSearchSpec);
+	
+	public int countBook(BookSearchSpec bookSearchSpec);
 }

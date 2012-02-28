@@ -1,7 +1,12 @@
 package kr.miraesoft.miraebook.service;
 
+import java.util.List;
+
+import kr.miraesoft.hyunjae.paging.Paging;
+import kr.miraesoft.hyunjae.paging.PagingFactory;
 import kr.miraesoft.miraebook.domain.Book;
 import kr.miraesoft.miraebook.repository.BookRepository;
+import kr.miraesoft.miraebook.repository.BookSearchSpec;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,4 +35,11 @@ public class BookServiceImpl implements BookService {
 		bookRepository.deleteBook(id);
 	}
 
+	public Paging listBook(BookSearchSpec bookSearchSpec) {
+		Paging paging = PagingFactory.createPaging(bookSearchSpec);
+		List<Book> list =  bookRepository.list(bookSearchSpec);
+		paging.setList(list);
+		paging.setTotal(bookRepository.countBook(bookSearchSpec));
+		return paging;
+	}
 }

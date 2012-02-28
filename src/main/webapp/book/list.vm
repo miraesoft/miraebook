@@ -7,17 +7,55 @@
 			
 		</script>
     </head>
-    <body> 
-    <table border="1">
-     #foreach($entity in $list)
-    <tr>
-    <td><a href="view?id=$entity.id">$entity.name</a></td>
-    <td><button onclick="location.href='delete?id=$entity.id'">delete</button></td>
-    <td><button onclick="location.href='update?id=$entity.id'">update</button></td>
-    </tr>
-        #end
-    </table>
-        <button onclick="location.href='write'">쓰기</button>
-        <button onclick="location.href='list?order=name'">정렬</button>
+    <body>
+		<form name="frm" method="get" action="list">
+		    <table border="1">
+		    <tr><td height="50"><input type="text" name="name" value="" autofocus="autofocus" required="required" />
+			<input type="submit" value="검색"/></td></tr>
+		     #foreach($entity in $paging.list)
+			    <tr>
+			    <td><a href="view/$entity.bookno">$entity.name $entity.location.name</a></td>
+			    <td><button onclick="location.href='remove/$entity.bookno'">delete</button></td>
+			    <td><button onclick="location.href='update/$entity.bookno'">update</button></td>
+			    </tr>
+		        #end
+		    </table>
+	        <button onclick="location.href='write'">쓰기</button>
+	        <button onclick="location.href='list?order=name&ordby=desc&currPage=$!paging.currPage&name=$!bookSearchSpec.name'">오름정렬</button>
+			<button onclick="location.href='list?order=name&ordby=asc&currPage=$!paging.currPage&name=$!bookSearchSpec.name'">내림정렬</button>
+		</form>
+#if($!paging.getTotal() != 0 )
+
+	<div class="paginate">
+		
+		#if($paging.prevPage > 1)
+			<a href="list?order=$!bookSearchSpec.order&ordby=$!bookSearchSpec.ordby&currPage=1&name=$!bookSearchSpec.name" class="pre">처음</a>
+		#end
+		
+		#if( $paging.hasPrevPage() )
+			<a href="list?order=$!bookSearchSpec.order&ordby=$!bookSearchSpec.ordby&currPage=$paging.prevPage&name=$!bookSearchSpec.name" class="pre">이전페이지</a>
+		#end
+		
+		#if($paging.endPage >= 1)
+			#foreach($page in [$paging.startPage .. $paging.endPage])
+				#if( $page == $paging.currPage ) 
+					<a href="javascript:void(0);" class="currPage">$page</a>
+				#else
+					<a href="list?order=$!bookSearchSpec.order&ordby=$!bookSearchSpec.ordby&currPage=$!page&name=$!bookSearchSpec.name">$page</a>
+				#end
+			#end
+		#end	
+		
+		#if( $paging.hasNextPage() )
+			<a href="list?order=$!bookSearchSpec.order&ordby=$!bookSearchSpec.ordby&currPage=$paging.nextPage&name=$!bookSearchSpec.name" class="next">다음페이지</a> 
+		#end
+		
+		#if($paging.totalPage > $paging.endPage)
+			<a href="list?order=$!bookSearchSpec.order&ordby=$!bookSearchSpec.ordby&currPage=$paging.totalPage&name=$!bookSearchSpec.name" class="next">맨뒤</a>
+		#end
+	</div>
+	
+	
+#end
     </body>
 </html>
