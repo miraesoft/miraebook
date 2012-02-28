@@ -40,6 +40,7 @@ public class BookTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testAddBook_책_추가_후_확인() throws Exception {
 		
 		//begin
@@ -73,6 +74,7 @@ public class BookTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testUpdateBook_책_추가_후_수정_후_확인() throws Exception {
 		Book book = new Book();
 		book.setName("토비의 스프링3.0");
@@ -86,6 +88,7 @@ public class BookTest {
 	}
 	
 	@Test
+	@Ignore
 	public void test_북만들고_로케이션_지정() throws Exception {
 		
 		Book book = bookService.getBook(1);
@@ -100,6 +103,17 @@ public class BookTest {
 		
 		assertThat(bookService.getBook(1).getName(),is("하이버네이트"));
 		assertThat(bookService.getBook(1).getLocation().getName(), is("안병휘가 가져감"));
+				
+		
+//		assertThat(locationRepository.findOne(1).getBook().getName(), is("하이버네이트"));
+	}
+	
+	@Test
+	public void 책정보가져오기() throws Exception {
+		
+		Book book = bookService.getBook(1);
+		
+		assertThat(bookService.getBook(1).getLocation().getName(), is("토비"));
 				
 		
 //		assertThat(locationRepository.findOne(1).getBook().getName(), is("하이버네이트"));
