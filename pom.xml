@@ -5,13 +5,14 @@
 	<artifactId>miraebook</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-
-	<properties>
+ 	<properties>
+		  <encodingtype>utf-8</encodingtype>
 		<java-version>1.6</java-version>
 		<org.springframework-version>3.1.0.RELEASE</org.springframework-version>
 		<org.springframework.security-version>3.1.0.RELEASE</org.springframework.security-version>
 		<org.slf4j-version>1.6.1</org.slf4j-version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -137,6 +138,14 @@
 				</resources>
 				<plugins>
 					<plugin>
+				     <artifactId>maven-compiler-plugin</artifactId>
+				     <configuration>
+				      <encoding>${encodingtype}</encoding>
+				      <source>${java-version}</source>
+				      <target>${java-version}</target>
+				     </configuration>
+				    </plugin>
+					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-war-plugin</artifactId>
 						<configuration>
@@ -165,6 +174,14 @@
 					</resource>
 				</resources>
 				<plugins>
+				<plugin>
+				     <artifactId>maven-compiler-plugin</artifactId>
+				     <configuration>
+				      <encoding>${encodingtype}</encoding>
+				      <source>${java-version}</source>
+				      <target>${java-version}</target>
+				     </configuration>
+				    </plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-war-plugin</artifactId>

@@ -109,6 +109,7 @@ public class BookTest {
 	}
 	
 	@Test
+	@Ignore
 	public void 책정보가져오기() throws Exception {
 		
 		Book book = bookService.getBook(1);
