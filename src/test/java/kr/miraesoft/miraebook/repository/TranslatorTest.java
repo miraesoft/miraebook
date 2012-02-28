@@ -18,9 +18,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/applicationContext.xml"})
+@Transactional
 public class TranslatorTest {
 
 	@Inject 
@@ -28,6 +28,7 @@ public class TranslatorTest {
 
 
 	@Test
+	@Ignore
 	public void test() {
 		// begin
 		//Translator translator = new  Translator(0, "황순원");
@@ -52,6 +53,7 @@ public class TranslatorTest {
 	
 
 	@Test
+	@Ignore
 	public void 번역자정보가져오기() {
 		// begin
 		//Translator translator = new  Translator();
@@ -66,6 +68,7 @@ public class TranslatorTest {
 
 
 	@Test
+	@Ignore
 	public void 번역자정보리스트가져오기() {
 		// begin
 		
@@ -76,6 +79,7 @@ public class TranslatorTest {
 	}
 	
 	@Test
+	@Ignore
 	public void 번역자정보수정하기(){
 		// begin
 		
