@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import kr.miraesoft.miraebook.domain.Book;
 import kr.miraesoft.miraebook.domain.Location;
 import kr.miraesoft.miraebook.domain.Publisher;
+import kr.miraesoft.miraebook.repository.BookSearchSpec;
 import kr.miraesoft.miraebook.service.BookService;
 import kr.miraesoft.miraebook.service.LocationService;
 import kr.miraesoft.miraebook.service.PublisherService;
@@ -76,10 +77,35 @@ public class BookController {
 		return new ModelAndView(new RedirectView("view/"+book.getBookno()));
 	}
 	
+
 	@RequestMapping(value="list",method=RequestMethod.GET)
-	String list(Model model ,@PathVariable("bookno") Integer bookno){
-		Book book = bookService.getBook(bookno);
-		model.addAttribute("book",book);
+	String list(Model model , BookSearchSpec bookSearchSpec){
+		
+		Book book = new Book();
+		book.setName("하이버네이트");
+		book.setLocation(locationService.getLocation(1));
+		bookService.addBook(book);
+		
+		book = new Book();
+		book.setName("디자인패턴");
+		book.setLocation(locationService.getLocation(1));
+		bookService.addBook(book);
+		
+		book = new Book();
+		book.setName("디비");
+		book.setLocation(locationService.getLocation(1));
+		bookService.addBook(book);
+		
+		
+		model.addAttribute("paging",bookService.listBook(bookSearchSpec));
 		return "book/list";
 	}
+
+	@RequestMapping(value="view/{bookno}",method=RequestMethod.GET)
+	String view(@PathVariable("bookno") Integer bookno,Model model){
+		Book book  = bookService.getBook(bookno);
+		model.addAttribute("book", book);
+		return "book/view";
+	}
+	
 }
