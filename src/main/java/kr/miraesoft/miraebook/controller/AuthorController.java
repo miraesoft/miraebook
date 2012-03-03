@@ -28,7 +28,7 @@ public class AuthorController {
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public String list(Model model){
 
-		model.addAttribute("list", authorService.getAuthorList());
+		model.addAttribute("authorList", authorService.getAuthorList());
 		return "author/list";
 	}
 
