@@ -11,8 +11,8 @@
 				<tr>
 					<th>#</th>
 					<th>이름</th>
-					<th>미정</th>
-					<th>미정</th>
+					<th>EMail</th>
+					<th>Homepage</th>
 					<th> </th>
 				</tr>
 			</thead>
@@ -21,8 +21,8 @@
 				<tr>
 					<td>${authorStatus.count}</td>
 					<td>${author.name}</td>
-					<td>-</td>
-					<td>-</td>
+					<td>${author.email}</td>
+					<td>${author.homepage}</td>
 					<td>
 						<a class="btn btn-primary" href="update?no=${author.no}">수정</a>
 						<a class="btn btn-danger" href="delete?no=${author.no}">삭제</a>

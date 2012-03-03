@@ -9,7 +9,7 @@
     </head>
     <body>
     <table border="1">
-     #foreach($entity in $list)
+     #foreach($entity in $authorList)
     <tr>
     <td><a href="$entity.no">$entity.name</a></td>
     <td><button onclick="location.href='delete?no=$entity.no'">delete</button></td>
