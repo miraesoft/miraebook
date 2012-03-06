@@ -31,8 +31,8 @@
 				</c:forEach>							
 			</tbody>
 		</table>
-		
-		<div align="right">
+		<hr>
+		<div align="center">
 			<a class="btn btn-primary" href="write">저자 등록</a>
 		</div>
 		
