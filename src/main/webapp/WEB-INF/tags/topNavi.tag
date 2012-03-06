@@ -17,7 +17,7 @@
 			<div class="nav-collapse">
 				<ul class="nav">
 					<li><a href="../">Home</a></li>
-					<li><a href="./book/book.html">Book</a></li>
+					<li><a href="#">Book</a></li>
 					<li><a href="../author/list">Author</a></li>
 					<li><a href="#">Translator</a></li>
 					<li><a href="#">Publisher</a></li>

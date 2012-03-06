@@ -27,13 +27,25 @@
 </head>
 
 <body>
-
 	<bootstrap:topNavi/>
 	
 	<div class="container">
-		<jsp:doBody/>
 	
-		<bootstrap:footer/>
+		<div class="row">
+			<div class="span1">
+			<p> </p>
+			</div>
+			<div class="span10">	
+		
+				<jsp:doBody/>
+			</div>
+			<div class="span1">
+			<p> </p>
+			</div>
+		</div>		
+				
+	<bootstrap:footer/>
+	
 	</div>
 	
     <!-- Le javascript

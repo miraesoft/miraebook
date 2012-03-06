@@ -21,7 +21,7 @@ public class AuthorController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome() {
-		return "author/hello";
+		return "author/list";
 	}
 
 

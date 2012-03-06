@@ -18,5 +18,10 @@ public class MainController {
     public String index(Model model) {
         return "index";
     }
+    
+    @RequestMapping("/main")
+    public String welcome() {
+    	return "main/main";
+    }
 
 }
