@@ -17,6 +17,9 @@ public class Translator {
 	@Column(nullable = true)
 	private String name;
 
+	@Column(nullable = true)
+	private String email;
+	
 	public Integer getNo() {
 		return no;
 	}
@@ -31,6 +34,14 @@ public class Translator {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 
