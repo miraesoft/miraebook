@@ -5,10 +5,8 @@ import javax.inject.Inject;
 import kr.miraesoft.miraebook.domain.Location;
 import kr.miraesoft.miraebook.service.LocationService;
 
-import org.hibernate.annotations.Parameter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,7 +40,7 @@ public class LocationController {
 	@RequestMapping(value="/write", method=RequestMethod.POST)
 	public String writeDo(Location location){
 		location.setId(locationService.addLocation(location));
-		return "redirect:" + location.getId();
+		return "redirect:list";
 	}
 
 	@RequestMapping(value="/update", method=RequestMethod.GET)
@@ -55,7 +53,9 @@ public class LocationController {
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	public String updateDo(Location location){
 		locationService.updateLocation(location);
-		return "redirect:" + location.getId();
+//		return "redirect:" + location.getId();
+		return "redirect:list";
+
 	}
 
 	@RequestMapping(value="/{name}", method=RequestMethod.GET)
