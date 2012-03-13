@@ -21,7 +21,7 @@
 					<li><a href="../author/list">Author</a></li>
 					<li><a href="#">Translator</a></li>
 					<li><a href="#">Publisher</a></li>
-					<li><a href="#">Location</a></li>
+					<li><a href="../location/list">Location</a></li>
 					<li><a href="#">Tag</a></li>
 				</ul>
 			</div><!-- /.nav-collapse -->
