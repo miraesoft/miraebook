@@ -26,6 +26,12 @@
 					<input name="homepage" id="homepage" type="text" class="input-xlarge">
 				</div>
 			</div>
+			<div class="control-group">
+				<label class="control-label" for="contact">연락처</label>
+				<div class="controls">
+					<input name="contact" id="contact" type="tel" class="input-xlarge">
+				</div>
+			</div>			
 			<div class="form-actions">
 				<button type="submit" class="btn btn-primary">확인</button>
 				<button class="btn">취소</button>

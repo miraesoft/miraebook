@@ -13,6 +13,7 @@
 					<th>이름</th>
 					<th>EMail</th>
 					<th>Homepage</th>
+					<th>연락처</th>
 					<th> </th>
 				</tr>
 			</thead>
@@ -23,6 +24,7 @@
 					<td>${author.name}</td>
 					<td>${author.email}</td>
 					<td>${author.homepage}</td>
+					<td>${author.contact}</td>
 					<td>
 						<a class="btn btn-primary" href="update?no=${author.no}">수정</a>
 						<a class="btn btn-danger" href="delete?no=${author.no}">삭제</a>

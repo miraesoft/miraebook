@@ -17,6 +17,7 @@ public class Author {
 	
 	private String homepage;
 	
+	private String contact;
 	
 	public Integer getNo() {
 		return no;
@@ -48,6 +49,14 @@ public class Author {
 
 	public void setHomepage(String homepage) {
 		this.homepage = homepage;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 	
 }
