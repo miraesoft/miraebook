@@ -19,7 +19,7 @@
 				<c:forEach items="${list}" var="tran" varStatus="tranStatus">
 				<tr>
 					<td>${tranStatus.count}</td>
-					<td>${tran.name}</td>
+					<td><a href="${tran.no}">${tran.name}</a></td>
 					<td>${tran.email}</td>
 					<td>
 						<a class="btn btn-primary" href="update?no=${tran.no}">수정</a>
