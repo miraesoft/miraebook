@@ -3,6 +3,7 @@ package kr.miraesoft.miraebook.controller;
 import kr.miraesoft.miraebook.domain.Author;
 import kr.miraesoft.miraebook.domain.Publisher;
 import kr.miraesoft.miraebook.repository.PublisherRepository;
+import kr.miraesoft.miraebook.repository.PublisherSearchSpec;
 import kr.miraesoft.miraebook.service.PublisherService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +19,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PublisherController {
 
 	@Autowired
-	PublisherService PublisherService;
+	PublisherService publisherService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome() {
-		return "publisher/hello";
+		return "redirect:list";
 	}
 
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public String list(Model model){
+	public String list(Model model, PublisherSearchSpec publisherSearchSpec){
 
-		model.addAttribute("list", PublisherService.list());
+		model.addAttribute("paging", publisherService.getPagingList(publisherSearchSpec));
 		return "publisher/list";
 	}
 
@@ -39,33 +40,26 @@ public class PublisherController {
 
 	@RequestMapping(value="/write", method=RequestMethod.POST)
 	public String writeDo(Publisher publisher){
-		publisher = PublisherService.add(publisher);
-		return "redirect:view?id=" + publisher.getId();
+		publisherService.add(publisher);
+		return "redirect:list";
 	}
 
 	@RequestMapping(value="/update", method=RequestMethod.GET)
 	public String update(@RequestParam("id") Integer id, Model model){
-		Publisher publisher = PublisherService.get(id);
+		Publisher publisher = publisherService.get(id);
 		model.addAttribute("publisher", publisher);
 		return "publisher/update";
 	}
 
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	public String updateDo(Publisher publisher){
-		publisher = PublisherService.update(publisher);
-		return "redirect:view?id=" + publisher.getId();
-	}
-
-	@RequestMapping(value="/view", method=RequestMethod.GET)
-	public String view(@RequestParam("id") Integer id, Model model){
-		Publisher publisher = PublisherService.get(id);
-		model.addAttribute("publisher", publisher);
-		return "publisher/view";
+		publisherService.update(publisher);
+		return "redirect:list";
 	}
 
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
-	public String delete(@RequestParam("id") Integer id){
-		PublisherService.delete(id);
+	public String delete(Publisher publisher){
+		publisherService.delete(publisher);
 		return "redirect:list";
 	}
 }

@@ -1,10 +1,23 @@
 package kr.miraesoft.miraebook.repository;
 
+import java.util.List;
+
 import kr.miraesoft.miraebook.domain.Publisher;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-@Repository
-public interface PublisherRepository extends JpaRepository<Publisher, Integer>{
+public interface PublisherRepository{
+
+	List<Publisher> list(PublisherSearchSpec publisherSearchSpec);
+
+	int count(PublisherSearchSpec publisherSearchSpec);
+
+	Integer save(Publisher publisher);
+
+	List<Publisher> findAll();
+
+	Publisher findOne(Integer id);
+
+	void delete(Publisher publisher);
+
+	void update(Publisher publisher);
 	
 }

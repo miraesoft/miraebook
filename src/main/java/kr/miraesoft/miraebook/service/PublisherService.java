@@ -2,18 +2,21 @@ package kr.miraesoft.miraebook.service;
 
 import java.util.List;
 
-import kr.miraesoft.miraebook.domain.Location;
+import kr.miraesoft.hyunjae.paging.Paging;
 import kr.miraesoft.miraebook.domain.Publisher;
+import kr.miraesoft.miraebook.repository.PublisherSearchSpec;
 
 public interface PublisherService {
-	Publisher add(Publisher publisher);
+	Integer add(Publisher publisher);
 
 	List<Publisher> list();
 
 	Publisher get(Integer id);
 
-	Publisher update(Publisher publisher);
+	void update(Publisher publisher);
 
-	void delete(Integer id);
+	void delete(Publisher publisher);
+
+	Paging getPagingList(PublisherSearchSpec publisherSearchSpec);
 
 }

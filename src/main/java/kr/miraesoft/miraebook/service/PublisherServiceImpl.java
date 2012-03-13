@@ -2,21 +2,24 @@ package kr.miraesoft.miraebook.service;
 
 import java.util.List;
 
+import kr.miraesoft.hyunjae.paging.Paging;
+import kr.miraesoft.hyunjae.paging.PagingFactory;
+import kr.miraesoft.miraebook.domain.Publisher;
+import kr.miraesoft.miraebook.repository.PublisherRepository;
+import kr.miraesoft.miraebook.repository.PublisherSearchSpec;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import kr.miraesoft.miraebook.domain.Location;
-import kr.miraesoft.miraebook.domain.Publisher;
-import kr.miraesoft.miraebook.repository.LocationRepository;
-import kr.miraesoft.miraebook.repository.PublisherRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class PublisherServiceImpl implements PublisherService {
 	
 	@Autowired
 	PublisherRepository publisherRepository;
 	
-	public Publisher add(Publisher publisher) {
+	public Integer add(Publisher publisher) {
 		// TODO Auto-generated method stub
 		return publisherRepository.save(publisher);
 	}
@@ -31,14 +34,23 @@ public class PublisherServiceImpl implements PublisherService {
 		return publisherRepository.findOne(id);
 	}
 
-	public Publisher update(Publisher publisher) {
+	public void update(Publisher publisher) {
 		// TODO Auto-generated method stub
-		return publisherRepository.save(publisher);
+		publisherRepository.update(publisher);
 	}
 
-	public void delete(Integer id) {
+	public void delete(Publisher publisher) {
 		// TODO Auto-generated method stub
-		publisherRepository.delete(id);
+		publisherRepository.delete(publisher);
+	}
+
+	@Override
+	public Paging getPagingList(PublisherSearchSpec publisherSearchSpec) {
+		Paging paging = PagingFactory.createPaging(publisherSearchSpec);
+		List<Publisher> list =  publisherRepository.list(publisherSearchSpec);
+		paging.setList(list);
+		paging.setTotal(publisherRepository.count(publisherSearchSpec));
+		return paging;
 	}
 
 }
