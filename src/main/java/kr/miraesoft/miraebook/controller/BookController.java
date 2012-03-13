@@ -7,19 +7,21 @@ import javax.inject.Inject;
 import kr.miraesoft.miraebook.domain.Book;
 import kr.miraesoft.miraebook.domain.Location;
 import kr.miraesoft.miraebook.domain.Publisher;
+import kr.miraesoft.miraebook.domain.Tag;
 import kr.miraesoft.miraebook.repository.BookSearchSpec;
+import kr.miraesoft.miraebook.repository.TranslatorRepository;
 import kr.miraesoft.miraebook.service.BookService;
 import kr.miraesoft.miraebook.service.LocationService;
 import kr.miraesoft.miraebook.service.PublisherService;
+import kr.miraesoft.miraebook.service.TagService;
+import kr.miraesoft.miraebook.service.TranslatorService;
+import kr.miraresoft.miraebook.enumtype.FormType;
 
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -30,13 +32,19 @@ public class BookController {
 	@Inject private BookService bookService;
 	@Inject	private LocationService locationService;
 	@Inject private PublisherService publisherService;
+	@Inject private TagService tagService;
+	@Inject private TranslatorService translatorService;
 	
 	@RequestMapping(value="write",method=RequestMethod.GET)
 	String write(Model model){
 		List<Location> locationList = locationService.getLocationList("name"); 
 		List<Publisher> publisherList = publisherService.list();
+		List<Tag> tagList = tagService.getTagList();
+		model.addAttribute("formtypeMap", FormType.getMap());
 		model.addAttribute("locationList", locationList);
 		model.addAttribute("publisherList", publisherList);
+		model.addAttribute("translatorList", translatorService.getTranslatorList());
+		model.addAttribute("tagList", tagList);
 		return "book/write";
 	}
 	

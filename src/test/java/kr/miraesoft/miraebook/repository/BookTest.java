@@ -1,8 +1,12 @@
 package kr.miraesoft.miraebook.repository;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -10,10 +14,9 @@ import javax.inject.Inject;
 
 import kr.miraesoft.miraebook.domain.Book;
 import kr.miraesoft.miraebook.domain.Location;
-import kr.miraesoft.miraebook.domain.LocationType;
+import kr.miraesoft.miraebook.domain.Tag;
 import kr.miraesoft.miraebook.service.BookService;
 
-import static org.hamcrest.core.Is.is;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/applicationContext.xml"})
@@ -30,7 +34,11 @@ public class BookTest {
 	@Autowired
 	private BookService bookService;
 	
+	@Inject BookRepository bookRepository;
+	
 	@Inject LocationRepository locationRepository;
+	
+	@Inject TagRepository tagRepository;
 	
 	@Test
 	public void testBook() {
@@ -115,8 +123,18 @@ public class BookTest {
 		Book book = bookService.getBook(1);
 		
 		assertThat(bookService.getBook(1).getName(), is("스프링책"));
-				
-		
 //		assertThat(locationRepository.findOne(1).getBook().getName(), is("하이버네이트"));
 	}
+	
+	@Test
+	@Transactional
+	public void 태그_집어넣고_저장_후_확인() throws Exception {
+		Book book = new Book();
+		Collection<Tag> tag = tagRepository.getTagList();
+		book.setTags(tag);
+		bookRepository.saveBook(book);
+		
+		assertThat(bookRepository.findBook(1).getTags().size(), is(3));
+	}
+	
 }

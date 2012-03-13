@@ -15,9 +15,40 @@
    	   	  			<td><input type="text" name="name" value="$!book.name" autofocus="autofocus" required="required" /></td>
    	   	  		</tr>
    	   	  		<tr>
-   	   	  			<td>cost :</td>
-   	   			  	<td><input type="text" name="cost" value="$!book.cost" autofocus="autofocus" required="required" /></td>
+   	   	  			<td>price :</td>
+   	   			  	<td><input type="text" name="price" value="$!book.price" autofocus="autofocus" required="required" /></td>
    	   		  </tr>
+   	   	  		<tr>
+   	   	  			<td>purchaseprice :</td>
+   	   			  	<td><input type="text" name="purchaseprice" value="$!book.purchaseprice" autofocus="autofocus" required="required" /></td>
+   	   		  </tr>
+  	   	  		<tr>
+   	   	  			<td>publishdate :</td>
+   	   			  	<td><input type="text" name="publishdate" value="$!book.publishdate" autofocus="autofocus" required="required" /></td>
+   	   		  </tr>   	   		  
+   	  		<tr>
+   	   	  			<td>purchasedate :</td>
+   	   			  	<td><input type="text" name="purchasedate" value="$!book.purchasedate" autofocus="autofocus" required="required" /></td>
+   	   		  </tr>     	   		  
+   	  		<tr>
+   	   	  			<td>wheretobuy :</td>
+   	   			  	<td><input type="text" name="wheretobuy" value="$!book.wheretobuy" autofocus="autofocus" required="required" /></td>
+   	   		  </tr>  
+   	  		<tr>
+   	   	  			<td>pages :</td>
+   	   			  	<td><input type="text" name="pages" value="$!book.pages" autofocus="autofocus" required="required" /></td>
+   	   		  </tr> 
+   	  		<tr>
+   	   	  			<td>formtype :</td>
+   	   	  			<td>  						 
+   	   	  				<select name="formtype">
+						 #foreach($entity in $formtypeMap.keySet())
+						 <option value="$!entity">$!entity.name</option>
+						 #end
+						 </select>
+						 </td>
+
+   	   		  </tr>      	   		     	   		  
 				<tr>
 					<td>location :</td>
 					<td>
@@ -36,13 +67,22 @@
 					#end
 					</select> </td>
 				</tr>
-				#*
 				<tr>
 					<td>translator :</td>
-					<td> <select name="translator"><option value="백기선">백기선씨</option></select>  </td>
-				</tr>
-				*#
-          </table>                    
+					<td>
+						 <select name="translator_no">
+						 #foreach($entity in $translatorList)
+						 <option value="$!entity.no">$!entity.name</option>
+						 #end
+						 </select>
+					</td>
+				</tr>    				
+				<tr>
+					<td>Tag</td>
+					#foreach($entity in $tagList)
+					<td><label for="tag_ids"></label><input type="checkbox"  name="tag_ids" id="tag_ids" value="$entity.id"/>$entity.name</td>
+					#end
+				</tr>          </table>                    
 			<button>submit</button>
         </form>
     </body>

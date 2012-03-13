@@ -8,13 +8,32 @@
 		</script>
     </head>
     <body>
-        책이름  : ${book.name}  
+        name  : ${book.name}  
         <br/>
-        가격 : ${book.cost}
+        price : ${book.price}
         <br/>
-        위치 : ${book.location.name}
+        purchaseprice : ${book.purchaseprice}
         <br/>
-        저자 : ${book.publisher.name}
+        publishdate : ${book.publishdate}
+        <br/>
+        purchasedate : ${book.purchasedate}
+        <br/>
+        wheretobuy : ${book.wheretobuy}
+        <br/>
+        pages : ${book.pages}
+        <br/>
+        formtype : ${book.formtype.name}
+        <br/>
+        location : ${book.location.name}
+        <br/>
+        publisher : ${book.publisher.name}
+        <br/>
+          tag : 
+        #foreach($entity in $book.tags)
+	     $entity.name ,
+        #end
+       <br/>
+       translator : ${book.translator.name}
     	 <button onclick="location.href='list'">list </button>
     </body>
     
