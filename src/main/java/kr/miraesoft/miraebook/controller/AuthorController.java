@@ -21,14 +21,14 @@ public class AuthorController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome() {
-		return "author/hello";
+		return "author/list";
 	}
 
 
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public String list(Model model){
 
-		model.addAttribute("list", authorService.getAuthorList());
+		model.addAttribute("authorList", authorService.getAuthorList());
 		return "author/list";
 	}
 
@@ -41,7 +41,7 @@ public class AuthorController {
 	@RequestMapping(value="/write", method=RequestMethod.POST)
 	public String writeDo(Author author){
 		author = authorService.addAuthor(author);
-		return "redirect:" + author.getNo();
+		return "redirect:list";
 	}
 
 	@RequestMapping(value="/update", method=RequestMethod.GET)
@@ -54,7 +54,7 @@ public class AuthorController {
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	public String updateDo(Author author){
 		author = authorService.updateAuthor(author);
-		return "redirect:" + author.getNo();
+		return "redirect:list";
 	}
 
 	@RequestMapping(value="/{name}", method=RequestMethod.GET)

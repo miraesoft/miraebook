@@ -8,13 +8,23 @@ import javax.persistence.*;
 public class Author {
 	
 	@Id 
-	@Column(name = "NO")
 	@GeneratedValue(strategy=GenerationType.AUTO)
  	private Integer no;
  	
-	@Column(name = "NAME")
 	private String name;
 	
+	private String email;
+	
+	private String homepage;
+	
+	
+	public Integer getNo() {
+		return no;
+	}
+
+	public void setNo(Integer no) {
+		this.no = no;
+	}
 	
 	public String getName() {
 		return name;
@@ -24,14 +34,20 @@ public class Author {
 		this.name = name;
 	}
 
-	public Integer getNo() {
-		return no;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setNo(Integer no) {
-		this.no = no;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	
+	public String getHomepage() {
+		return homepage;
+	}
+
+	public void setHomepage(String homepage) {
+		this.homepage = homepage;
+	}
 	
 }
